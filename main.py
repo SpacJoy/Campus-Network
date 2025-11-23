@@ -93,22 +93,6 @@ def send_request(url):
         else:
             return None, error
 
-# #链接模式处理
-# def Link_send_request(response):
-#     # 解析响应内容
-#     data = response.json()
-#     messagebox.showinfo("返回值",data["message"])
-#     # 检查HTTP状态码
-#     if response.status_code == 200:
-#         # 处理成功的响应
-#         root.after(0, lambda: login_info_label.config(text=f"登录成功: {data['message']}"))
-#         logger.info(f"登录成功:{data['message']}\n\n")
-#     else:
-#         # 处理错误的响应
-#         root.after(0, lambda: login_info_label.config(text=f"登录失败: {data['error']}"))
-#         logger.error(f"登录失败:{data['error']}\n\n")
-#     login_button.config(state=tk.NORMAL)    
-
 def handle_response(response, error):
     if error:
         root.after(0, lambda: login_info_label.config(text=f"网络请求失败(登录失败): {str(error)}"))
